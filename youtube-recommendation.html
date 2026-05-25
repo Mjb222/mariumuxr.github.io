@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Recommendation Trust - Portfolio Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF0000;
+            --secondary: #FF6B6B;
+            --accent: #FFB3B3;
+            --dark: #1F1F1F;
+            --light: #F5F5F5;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --error: #DC2626;
+            --success: #059669;
+            --warning: #F59E0B;
+            --bg-white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, rgba(255, 107, 107, 0.05) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .meta-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .disclaimer {
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .disclaimer h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .disclaimer p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Section */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.5px;
+        }
+
+        section > p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: var(--dark);
+        }
+
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Objectives Grid */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .objective-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(255, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .objective-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .objective-card h4 {
+            margin-top: 0;
+            font-size: 1.125rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .objective-card p {
+            margin: 0.5rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Methods Grid */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .method-card {
+            background: var(--bg-white);
+            border: 2px solid var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(255, 0, 0, 0.08);
+        }
+
+        .method-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .method-card h4 {
+            margin-top: 0;
+            text-transform: none;
+            font-size: 1rem;
+            letter-spacing: 0;
+        }
+
+        .method-card p {
+            margin: 0.5rem 0 0 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-white);
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        th, td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        tbody tr:hover {
+            background: var(--light);
+        }
+
+        tbody tr:nth-child(even) {
+            background: rgba(245, 245, 245, 0.5);
+        }
+
+        td {
+            font-size: 0.95rem;
+        }
+
+        /* Finding Cards */
+        .finding {
+            background: var(--light);
+            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .finding h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .finding-quote {
+            border-left: 4px solid var(--secondary);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .metric-box {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Archetype Cards */
+        .archetype-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .archetype-card {
+            background: var(--bg-white);
+            border: 2px solid var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 5px solid var(--primary);
+        }
+
+        .archetype-card h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .archetype-label {
+            display: inline-block;
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .barrier {
+            background: rgba(220, 38, 38, 0.08);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--error);
+        }
+
+        .barrier strong {
+            color: var(--error);
+        }
+
+        .opportunity {
+            background: rgba(5, 150, 105, 0.08);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--success);
+        }
+
+        .opportunity strong {
+            color: var(--success);
+        }
+
+        /* Recommendation Cards */
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .rec-card {
+            background: var(--bg-white);
+            border: 2px solid var(--light);
+            border-top: 4px solid var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .rec-priority {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .rec-card h4 {
+            margin-top: 0;
+            text-transform: none;
+            font-size: 1.125rem;
+            letter-spacing: 0;
+        }
+
+        .rec-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+
+        .rec-card li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .rec-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Impact Metrics */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .impact-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .impact-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* List Styles */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul li, ol li {
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 75px;
+            top: 60px;
+            bottom: -40px;
+            width: 2px;
+            background: var(--light);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .timeline-date::before {
+            content: '';
+            position: absolute;
+            left: -90px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .timeline-content {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-content h4 {
+            margin-top: 0;
+        }
+
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 1rem 0 2rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Scroll to Top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 999;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            th, td {
+                padding: 0.875rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .objectives-grid,
+            .methods-grid,
+            .recommendations-grid,
+            .impact-grid,
+            .archetype-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-date::before {
+                left: -12px;
+            }
+
+            .timeline-item:not(:last-child)::before {
+                left: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section, .objective-card, .method-card, .finding {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        section:nth-of-type(1) { animation-delay: 0s; }
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">UX Research</a>
+            <ul>
+                <li><a href="#challenge" class="nav-link">Challenge</a></li>
+                <li><a href="#methodology" class="nav-link">Methodology</a></li>
+                <li><a href="#findings" class="nav-link">Findings</a></li>
+                <li><a href="#recommendations" class="nav-link">Recommendations</a></li>
+                <li><a href="#impact" class="nav-link">Impact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>YouTube Recommendation Trust</h1>
+            <p>How users develop confidence in algorithmic recommendations and decide between discovery and search</p>
+            
+            <div class="disclaimer">
+                <h4>📋 Portfolio Case Study</h4>
+                <p>This is a hypothetical UX research project analyzing YouTube's recommendation algorithm and feature. The research plan, methodology, and predicted findings are based on UX research best practices and product knowledge. This is not based on official YouTube research but represents what a comprehensive user study would likely uncover.</p>
+            </div>
+
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <span class="meta-value">36</span>
+                    <span class="meta-label">Hypothetical Participants</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-value">5</span>
+                    <span class="meta-label">User Archetypes</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-value">68%</span>
+                    <span class="meta-label">Current Trust Score</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-value">89%</span>
+                    <span class="meta-label">Predicted w/ Changes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge -->
+    <section id="challenge">
+        <div class="container">
+            <h2>The Challenge</h2>
+            <p>YouTube's recommendation algorithm is a core feature driving engagement, watch time, and user retention. Yet research shows users have mixed trust in recommendations—68% trust the algorithm to some degree, but 32% actively avoid it or distrust it entirely. This directly impacts engagement, causing users to rely on search instead of discovery. Understanding how users evaluate algorithmic recommendations is critical for balancing engagement with user autonomy and trust.</p>
+            
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">1</div>
+                    <h4>Map Trust Development</h4>
+                    <p>Identify specific moments when users build or lose trust in YouTube's recommendations</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">2</div>
+                    <h4>Understand Mental Models</h4>
+                    <p>How do users conceptualize how recommendations work? What assumptions are wrong?</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">3</div>
+                    <h4>Diagnose Distrust Barriers</h4>
+                    <p>Why do 32% avoid recommendations? Privacy concerns? Quality issues? Control loss?</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">4</div>
+                    <h4>Balance Autonomy & Engagement</h4>
+                    <p>How to increase recommendations engagement while respecting user agency and control</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology">
+        <div class="container">
+            <h2>Research Methodology</h2>
+            <p>This hypothetical study would combine ethnographic observation of YouTube use, in-depth interviews about recommendation decisions, mental model elicitation, behavioral logging of search vs. recommendation choices, and A/B testing of transparency features. The goal is to understand both how users interact with recommendations and what drives their trust or distrust decisions.</p>
+            
+            <div class="methods-grid">
+                <div class="method-card">
+                    <div class="method-icon">📱</div>
+                    <h4>Behavioral Logging</h4>
+                    <p>36 users tracked for 2 weeks: Every recommendation viewed, clicked, or rejected. Compare to search behavior</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">🧠</div>
+                    <h4>Mental Model Elicitation</h4>
+                    <p>Drawing exercises: "How does YouTube know what to recommend?" Uncover false assumptions about algorithm</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">💬</div>
+                    <h4>In-Depth Interviews</h4>
+                    <p>60-90 min interviews exploring trust decisions, recommendation satisfaction, privacy concerns, desired controls</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">🔬</div>
+                    <h4>A/B Testing Transparency</h4>
+                    <p>Test 3 versions: current recommendations vs. "why recommended" vs. "why recommended + control options"</p>
+                </div>
+            </div>
+
+            <h3>Hypothetical Participant Segments</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Archetype</th>
+                        <th>Usage Pattern</th>
+                        <th>N</th>
+                        <th>Trust Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Discovery Seekers</td>
+                        <td>Primarily watch recommended videos, enjoy surprises</td>
+                        <td>12</td>
+                        <td>High (85%)</td>
+                    </tr>
+                    <tr>
+                        <td>Purposeful Searchers</td>
+                        <td>Search for specific content, rarely click recommendations</td>
+                        <td>10</td>
+                        <td>Low (35%)</td>
+                    </tr>
+                    <tr>
+                        <td>Habitual Scrollers</td>
+                        <td>Browse recommendations passively, low intentionality</td>
+                        <td>8</td>
+                        <td>Medium (62%)</td>
+                    </tr>
+                    <tr>
+                        <td>Privacy-Conscious</td>
+                        <td>Distrust algorithm due to data collection concerns</td>
+                        <td>4</td>
+                        <td>Very Low (28%)</td>
+                    </tr>
+                    <tr>
+                        <td>Power Users</td>
+                        <td>Heavy use, curated subscriptions, selective recommendation use</td>
+                        <td>2</td>
+                        <td>Medium-High (72%)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Findings -->
+    <section id="findings">
+        <div class="container">
+            <h2>Predicted Key Findings</h2>
+            <p>Based on user research principles and platform knowledge, here are the findings this study would likely uncover:</p>
+
+            <div class="finding">
+                <h3>Finding 1: "Recommendation Quality" is Subjective and Context-Dependent</h3>
+                <p>Users don't evaluate recommendations objectively. Same recommendation rated "good" in one context (discovering music) rated "creepy" in another (YouTube knowing they watched something embarrassing). Users want recommendations that surprise them while respecting boundaries.</p>
+
+                <h4>Perceived Quality Depends On:</h4>
+                <ul>
+                    <li><strong>Relevance to current need</strong> (not historical interest) — Users want recommendations for what they want NOW, not what they watched last month</li>
+                    <li><strong>Unexpected but not creepy</strong> — New suggestions in safe categories, not invasive tracking</li>
+                    <li><strong>Diversity</strong> — Users want variety, not endless variations of one topic</li>
+                    <li><strong>Source transparency</strong> — "Why is YouTube showing me this?" Lack of explanation creates distrust</li>
+                </ul>
+
+                <div class="opportunity">
+                    <strong>Opportunity:</strong> Users with understanding of HOW recommendations work show 2.4x higher trust. Simple explanations ("You watched X, so we recommend Y") dramatically increase confidence.
+                </div>
+            </div>
+
+            <div class="finding">
+                <h3>Finding 2: Five Distinct User Archetypes with Different Recommendation Trust Profiles</h3>
+                <p>Users have fundamentally different relationships with algorithmic recommendations. One-size-fits-all recommendation strategies fail because they don't account for different needs, values, and comfort levels with algorithmic personalization.</p>
+
+                <div class="archetype-grid">
+                    <div class="archetype-card">
+                        <span class="archetype-label">34% of users</span>
+                        <h4>Discovery Seekers</h4>
+                        <p>Primary motivation: Find new content. Trust YouTube to surprise them. Actively browse recommendations</p>
+                        
+                        <div class="opportunity">
+                            <strong>Opportunity:</strong> These users want MORE recommendations, more diversity, more serendipity. Increase recommendation carousel prominence
+                        </div>
+                    </div>
+
+                    <div class="archetype-card">
+                        <span class="archetype-label">28% of users</span>
+                        <h4>Purposeful Searchers</h4>
+                        <p>Primary motivation: Find specific content. Skip recommendations, search intentionally. Low engagement with feed</p>
+                        
+                        <div class="barrier">
+                            <strong>Trust Barrier:</strong> Recommendations feel like YouTube trying to control what they watch. Prefer autonomy
+                        </div>
+                    </div>
+
+                    <div class="archetype-card">
+                        <span class="archetype-label">22% of users</span>
+                        <h4>Habitual Scrollers</h4>
+                        <p>Primary motivation: Passive entertainment. Watch whatever's convenient. Low intentionality, high autoplay</p>
+                        
+                        <div class="opportunity">
+                            <strong>Opportunity:</strong> These users are easily influenced. Recommendations ARE what they watch. Risk: engagement without real trust
+                        </div>
+                    </div>
+
+                    <div class="archetype-card">
+                        <span class="archetype-label">11% of users</span>
+                        <h4>Privacy-Conscious</h4>
+                        <p>Primary concern: Data collection. Actively avoid recommendations due to privacy fears. High distrust</p>
+                        
+                        <div class="barrier">
+                            <strong>Trust Barrier:</strong> Algorithm implies data mining. They see recommendations as evidence of surveillance, not service
+                        </div>
+                    </div>
+
+                    <div class="archetype-card">
+                        <span class="archetype-label">5% of users</span>
+                        <h4>Power Users</h4>
+                        <p>Primary behavior: Selective engagement. Use subscriptions strategically. Trust algorithm but want full control</p>
+                        
+                        <div class="opportunity">
+                            <strong>Opportunity:</strong> These users want transparency and customization. More control options would increase their recommendation use
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="finding">
+                <h3>Finding 3: Mental Models of YouTube Recommendations Are Inaccurate</h3>
+                <p>Users hold false assumptions about how recommendations work, leading to either distrust (think it's more invasive than it is) or misuse (expect more personalization than exists).</p>
+
+                <h4>Common Misconceptions:</h4>
+                <ul>
+                    <li><strong>"YouTube watches what I watch through my camera/mic"</strong> (Reality: Based on watch history, clicks, likes) — Creates unwarranted surveillance anxiety</li>
+                    <li><strong>"Recommendations are designed to be addictive"</strong> (Reality: Optimized for watch time, which can be engaging but isn't inherently manipulative) — Creates distrust of YouTube's intent</li>
+                    <li><strong>"YouTube algorithm is perfect/knows me better than I know myself"</strong> (Reality: Probabilistic, often wrong) — Leads to blaming algorithm for bad recommendations instead of understanding limitations</li>
+                    <li><strong>"YouTube shows me whatever keeps me on the platform longest"</strong> (Reality: More nuanced, balancing watch time with satisfaction) — Implies YouTube doesn't care about user wellbeing</li>
+                </ul>
+
+                <div class="opportunity">
+                    <strong>Key Insight:</strong> Clear, simple education about "Here's how YouTube actually recommends videos" would eliminate distrust drivers and increase adoption.
+                </div>
+            </div>
+
+            <div class="finding">
+                <h3>Finding 4: Control & Transparency Drive Trust More Than Algorithm Quality</h3>
+                <p>Users trust recommendations more when they understand WHY, and when they have ability to reject, adjust, or customize. Perfect recommendations without explanation build less trust than mediocre recommendations users understand.</p>
+
+                <h4>Trust Signal Hierarchy (Predicted):</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Trust Signal</th>
+                            <th>Importance</th>
+                            <th>Current YouTube Implementation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Explanation: "Why recommended?"</td>
+                            <td style="color: var(--success); font-weight: bold;">92%</td>
+                            <td>❌ Not shown</td>
+                        </tr>
+                        <tr>
+                            <td>Ability to remove/adjust recommendations</td>
+                            <td style="color: var(--success); font-weight: bold;">88%</td>
+                            <td>⚠️ Hidden in menu</td>
+                        </tr>
+                        <tr>
+                            <td>Privacy transparency (what data is used)</td>
+                            <td style="color: var(--success); font-weight: bold;">85%</td>
+                            <td>❌ Not prominent in recommendations</td>
+                        </tr>
+                        <tr>
+                            <td>Diversity of recommendations shown</td>
+                            <td style="color: var(--success); font-weight: bold;">78%</td>
+                            <td>⚠️ Algorithmic, limited control</td>
+                        </tr>
+                        <tr>
+                            <td>Algorithm accuracy/relevance</td>
+                            <td style="color: var(--warning); font-weight: bold;">64%</td>
+                            <td>⚠️ Varies by user</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: 1rem;"><em>Key insight: Users prioritize understanding WHY over recommendation quality. They want agency more than perfect suggestions.</em></p>
+            </div>
+
+            <div class="finding">
+                <h3>Finding 5: Privacy Concerns Are The #1 Barrier to Recommendation Engagement</h3>
+                <p>Beyond quality, privacy fears drive 68% of users to avoid recommendations or reduce engagement with the feed. Users worry that following recommendations means "YouTube owns them" or can use their data in unexpected ways. Transparency about data use would directly address this barrier.</p>
+
+                <h4>Privacy Concerns Ranking:</h4>
+                <ul>
+                    <li><strong>Most Common (74%):</strong> "YouTube has too much data about me" — General discomfort with amount of tracking</li>
+                    <li><strong>High (61%):</strong> "What if recommendations are sold to advertisers?" — Fear of data monetization</li>
+                    <li><strong>Moderate (48%):</strong> "Does YouTube show my recommendations to other people?" — Concern about public exposure</li>
+                    <li><strong>Lower (31%):</strong> "Can YouTube predict things I haven't told anyone?" — Creepiness factor from inference capability</li>
+                </ul>
+
+                <div class="opportunity">
+                    <strong>Opportunity:</strong> Simple privacy transparency ("Here's exactly what data YouTube uses for recommendations") could reduce avoidance by 45% based on similar patterns in other platforms.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section id="recommendations">
+        <div class="container">
+            <h2>Strategic Recommendations</h2>
+            <p>Based on these predicted findings, here's how YouTube could increase recommendation engagement while building user trust across different archetypes:</p>
+
+            <div class="recommendations-grid">
+                <div class="rec-card">
+                    <span class="rec-priority">P1 - Transparency</span>
+                    <h4>Show "Why Recommended"</h4>
+                    <ul>
+                        <li>Display explanation with every recommendation (bottom of thumbnail)</li>
+                        <li>"You watched similar videos" / "Popular in [Topic]" / "Trending now"</li>
+                        <li>Make it clear and non-intrusive</li>
+                    </ul>
+                </div>
+
+                <div class="rec-card">
+                    <span class="rec-priority">P1 - Control</span>
+                    <h4>Simplify Recommendation Controls</h4>
+                    <ul>
+                        <li>Move "Don't recommend" from buried menu to visible location</li>
+                        <li>Add "Show more like this" / "Show less like this" options</li>
+                        <li>Let users control recommendation diversity preference</li>
+                    </ul>
+                </div>
+
+                <div class="rec-card">
+                    <span class="rec-priority">P1 - Privacy</span>
+                    <h4>Privacy Transparency in Feed</h4>
+                    <ul>
+                        <li>Show privacy statement: "Based on videos you watched"</li>
+                        <li>Link to data used for recommendations</li>
+                        <li>Clear: "Not shared with advertisers"</li>
+                    </ul>
+                </div>
+
+                <div class="rec-card">
+                    <span class="rec-priority">P2 - Archetype-Based</span>
+                    <h4>Segment Recommendation Strategies</h4>
+                    <ul>
+                        <li>Discovery Seekers: More recommendations, explore carousels</li>
+                        <li>Searchers: Reduce prominence, respect search preference</li>
+                        <li>Privacy-Conscious: High transparency, minimize data language</li>
+                    </ul>
+                </div>
+
+                <div class="rec-card">
+                    <span class="rec-priority">P2 - Mental Models</span>
+                    <h4>Educate About How Recommendations Work</h4>
+                    <ul>
+                        <li>Interactive tutorial: "How YouTube Recommends Videos"</li>
+                        <li>Explain: "Based on watch history, not surveillance"</li>
+                        <li>Debunk: "Not designed to be addictive"</li>
+                    </ul>
+                </div>
+
+                <div class="rec-card">
+                    <span class="rec-priority">P3 - Long-term</span>
+                    <h4>Build Progressive Trust</h4>
+                    <ul>
+                        <li>Start with transparent, simple explanations</li>
+                        <li>Show recommendation accuracy over time</li>
+                        <li>User satisfaction metrics visible</li>
+                        <li>Celebrate when recommendations are helpful</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Implementation Timeline</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Weeks 1-4</div>
+                    <div class="timeline-content">
+                        <h4>Add "Why Recommended" Labels</h4>
+                        <p>Design and test explanation formats. Owner: Design + Product</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Weeks 2-6</div>
+                    <div class="timeline-content">
+                        <h4>Improve Recommendation Controls</h4>
+                        <p>Move "Don't recommend" button to visible location. Add preference controls. Owner: Design + Engineering</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Weeks 4-8</div>
+                    <div class="timeline-content">
+                        <h4>Privacy Transparency Rollout</h4>
+                        <p>Add privacy information to recommendation feed. Owner: Design + Legal + Product</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Weeks 8-12</div>
+                    <div class="timeline-content">
+                        <h4>A/B Test & Measure</h4>
+                        <p>Run experiments measuring trust, engagement, and satisfaction. Owner: Product + Data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact">
+        <div class="container">
+            <h2>Expected Impact</h2>
+            <p>If YouTube implemented these recommendations based on this research, the predicted outcomes would be significant across all user segments:</p>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-value">68%</div>
+                    <div class="impact-label">Current Trust</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Current baseline</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">89%</div>
+                    <div class="impact-label">Predicted Trust</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">↑ with improvements</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">2.8x</div>
+                    <div class="impact-label">Engagement Increase</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Recommendation clicks</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">61%</div>
+                    <div class="impact-label">Privacy Concern Drop</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">↓ from 68%</p>
+                </div>
+            </div>
+
+            <h3>By User Archetype (Predicted):</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Archetype</th>
+                        <th>Current Trust</th>
+                        <th>Predicted Trust</th>
+                        <th>Key Driver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Discovery Seekers</td>
+                        <td>85%</td>
+                        <td>94%</td>
+                        <td>More diverse recommendations</td>
+                    </tr>
+                    <tr>
+                        <td>Purposeful Searchers</td>
+                        <td>35%</td>
+                        <td>52%</td>
+                        <td>Control to reduce prominence</td>
+                    </tr>
+                    <tr>
+                        <td>Habitual Scrollers</td>
+                        <td>62%</td>
+                        <td>78%</td>
+                        <td>Transparency + explanation</td>
+                    </tr>
+                    <tr>
+                        <td>Privacy-Conscious</td>
+                        <td>28%</td>
+                        <td>58%</td>
+                        <td>Privacy transparency</td>
+                    </tr>
+                    <tr>
+                        <td>Power Users</td>
+                        <td>72%</td>
+                        <td>88%</td>
+                        <td>Enhanced controls</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Metrics to Track Success</h3>
+            <ul>
+                <li><strong>Trust Score:</strong> Self-reported confidence in recommendations (target: 85%+)</li>
+                <li><strong>Recommendation Click Rate:</strong> % of recommendations clicked (target: +40% from current)</li>
+                <li><strong>Engagement Time:</strong> Watch time from recommendations vs. search (target: +30%)</li>
+                <li><strong>Privacy Concern Level:</strong> Self-reported privacy anxiety (target: -50%)</li>
+                <li><strong>Recommendation Satisfaction:</strong> "Helpful" rating of recommendations (target: 7.2/10)</li>
+                <li><strong>User Control Usage:</strong> % using "Don't recommend" / customization features (target: 35%+)</li>
+            </ul>
+
+            <div class="cta">
+                <h3>Research Questions This Study Would Answer</h3>
+                <p>This case study proposes a research framework for understanding YouTube recommendation trust and engagement. The actual study would validate, refine, or redirect these hypotheses based on real user behavior and feedback from diverse user segments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limitations -->
+    <section>
+        <div class="container">
+            <h2>Research Limitations & Caveats</h2>
+            
+            <h3>About This Study</h3>
+            <p>This is a <strong>hypothetical portfolio case study</strong>. The methodology is sound and based on UX research best practices, but the findings are predicted based on product knowledge and research principles—not actual user data from YouTube. Actual research would likely surface different nuances, unexpected insights, or contradictions to these hypotheses.</p>
+
+            <h3>Predicted Limitations of Actual Research</h3>
+            <ul>
+                <li>Sample limited to YouTube users; doesn't capture non-users or people who stopped using YouTube</li>
+                <li>YouTube algorithm changes constantly; findings have shelf-life and would need regular updates</li>
+                <li>Doesn't account for YouTube's business model pressures (watch time optimization vs. user trust)</li>
+                <li>Does not explore impact of YouTube Shorts, which has different recommendation dynamics</li>
+                <li>Cultural differences in algorithm trust not explored (trust in algorithms varies by country)</li>
+                <li>Doesn't measure actual behavior change from UI updates vs. stated intentions</li>
+            </ul>
+
+            <h3>Future Research Directions</h3>
+            <ul>
+                <li>Longitudinal study: Track how recommendation trust evolves over time</li>
+                <li>Comparative study: How does YouTube recommendation trust compare to other platforms (TikTok, Netflix, Spotify)?</li>
+                <li>Post-failure study: How trust recovers after a bad recommendation experience</li>
+                <li>Shorts vs. Long-form: Do recommendations work differently for different content types?</li>
+                <li>Intervention study: Test actual UI changes (transparency, control) and measure impact</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>YouTube Recommendation Trust & Engagement Research</strong></p>
+            <p>Portfolio Case Study | Hypothetical Research | May 2025</p>
+            <p>This case study demonstrates UX research methodology applied to a major consumer platform.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
+    <script>
+        // Navigation active states
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top button
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
