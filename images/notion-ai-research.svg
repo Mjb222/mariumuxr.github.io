@@ -1,0 +1,123 @@
+<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="675" fill="url(#bgGradient)"/>
+  
+  <!-- LEFT SIDE: Trust visualization -->
+  <g>
+    <!-- Trust bars background -->
+    <rect x="40" y="120" width="350" height="450" fill="none" stroke="#e5e7eb" stroke-width="2" rx="16"/>
+    
+    <!-- Title -->
+    <text x="60" y="160" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#000000">
+      Trust Drivers
+    </text>
+    
+    <!-- Bar 1: Transparency -->
+    <rect x="80" y="200" width="280" height="45" fill="#f5f5f5" rx="8"/>
+    <rect x="80" y="200" width="264" height="45" fill="#000000" rx="8" opacity="0.9"/>
+    <text x="90" y="230" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Transparency</text>
+    <text x="350" y="230" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000000">94%</text>
+    
+    <!-- Bar 2: Control -->
+    <rect x="80" y="260" width="280" height="45" fill="#f5f5f5" rx="8"/>
+    <rect x="80" y="260" width="249" height="45" fill="#000000" rx="8" opacity="0.8"/>
+    <text x="90" y="290" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Ability to Override</text>
+    <text x="350" y="290" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000000">89%</text>
+    
+    <!-- Bar 3: Privacy -->
+    <rect x="80" y="320" width="280" height="45" fill="#f5f5f5" rx="8"/>
+    <rect x="80" y="320" width="244" height="45" fill="#000000" rx="8" opacity="0.7"/>
+    <text x="90" y="350" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Privacy Explanation</text>
+    <text x="350" y="350" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000000">87%</text>
+    
+    <!-- Bar 4: Accuracy -->
+    <rect x="80" y="380" width="280" height="45" fill="#f5f5f5" rx="8"/>
+    <rect x="80" y="380" width="144" height="45" fill="#000000" rx="8" opacity="0.4"/>
+    <text x="90" y="410" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Accuracy</text>
+    <text x="350" y="410" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000000">51%</text>
+  </g>
+  
+  <!-- CENTER: NOTION LOGO & TEXT -->
+  <g>
+    <!-- Notion Logo (stylized N + circle) -->
+    <circle cx="600" cy="280" r="80" fill="none" stroke="#000000" stroke-width="3"/>
+    
+    <!-- Notion N -->
+    <text x="600" y="310" font-family="Arial, sans-serif" font-size="90" font-weight="900" fill="#000000" text-anchor="middle">N</text>
+    
+    <!-- Notion text below -->
+    <text x="600" y="400" font-family="Inter, sans-serif" font-size="32" font-weight="700" fill="#000000" text-anchor="middle">NOTION</text>
+    <text x="600" y="430" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#6b7280" text-anchor="middle">AI Features</text>
+  </g>
+  
+  <!-- RIGHT SIDE: User archetypes -->
+  <g>
+    <!-- Title -->
+    <text x="830" y="160" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#000000">
+      4 Archetypes
+    </text>
+    
+    <!-- Archetype 1 -->
+    <circle cx="880" cy="230" r="38" fill="#000000" opacity="0.9"/>
+    <text x="880" y="245" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">👥</text>
+    <text x="940" y="230" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#000000">Enthusiasts</text>
+    <text x="940" y="248" font-family="Inter, sans-serif" font-size="11" fill="#6b7280">35% • High adoption</text>
+    
+    <!-- Archetype 2 -->
+    <circle cx="880" cy="310" r="38" fill="#000000" opacity="0.8"/>
+    <text x="880" y="325" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">🤔</text>
+    <text x="940" y="310" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#000000">Skeptics</text>
+    <text x="940" y="328" font-family="Inter, sans-serif" font-size="11" fill="#6b7280">28% • Need clarity</text>
+    
+    <!-- Archetype 3 -->
+    <circle cx="880" cy="390" r="38" fill="#000000" opacity="0.7"/>
+    <text x="880" y="405" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">⚖️</text>
+    <text x="940" y="390" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#000000">Context</text>
+    <text x="940" y="408" font-family="Inter, sans-serif" font-size="11" fill="#6b7280">24% • Situation varies</text>
+    
+    <!-- Archetype 4 -->
+    <circle cx="880" cy="470" r="38" fill="#000000" opacity="0.5"/>
+    <text x="880" y="485" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">✋</text>
+    <text x="940" y="470" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#000000">Avoiding</text>
+    <text x="940" y="488" font-family="Inter, sans-serif" font-size="11" fill="#6b7280">13% • Resistance</text>
+  </g>
+  
+  <!-- Bottom stats -->
+  <g>
+    <!-- Stat 1 -->
+    <rect x="80" y="600" width="220" height="55" fill="#f5f5f5" rx="12"/>
+    <text x="110" y="625" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#000000">28%</text>
+    <text x="110" y="648" font-family="Inter, sans-serif" font-size="11" fill="#6b7280" font-weight="600">Current Adoption</text>
+    
+    <!-- Arrow -->
+    <text x="330" y="632" font-family="Inter, sans-serif" font-size="28" fill="#565D62" font-weight="700">→</text>
+    
+    <!-- Stat 2 -->
+    <rect x="380" y="600" width="220" height="55" fill="#f5f5f5" rx="12"/>
+    <text x="410" y="625" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#000000">52%</text>
+    <text x="410" y="648" font-family="Inter, sans-serif" font-size="11" fill="#6b7280" font-weight="600">Predicted Adoption</text>
+    
+    <!-- Arrow -->
+    <text x="635" y="632" font-family="Inter, sans-serif" font-size="28" fill="#565D62" font-weight="700">↑</text>
+    
+    <!-- Stat 3 -->
+    <rect x="680" y="600" width="220" height="55" fill="#f5f5f5" rx="12"/>
+    <text x="710" y="625" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#000000">3.2x</text>
+    <text x="710" y="648" font-family="Inter, sans-serif" font-size="11" fill="#6b7280" font-weight="600">Usage Increase</text>
+    
+    <!-- Arrow -->
+    <text x="935" y="632" font-family="Inter, sans-serif" font-size="28" fill="#565D62" font-weight="700">↑</text>
+    
+    <!-- Stat 4 -->
+    <rect x="980" y="600" width="190" height="55" fill="#f5f5f5" rx="12"/>
+    <text x="1005" y="625" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#000000">7.8/10</text>
+    <text x="1005" y="648" font-family="Inter, sans-serif" font-size="11" fill="#6b7280" font-weight="600">Trust Score</text>
+  </g>
+</svg>
