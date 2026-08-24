@@ -1,12 +1,12 @@
+
 <!DOCTYPE html>
 <!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Massively by HTML5 UP (html5up.net | @ajlkn) — base structure.
+	Custom design system by Marium's request: see assets/css/custom.css
 -->
 <html>
   <head>
-    <title>Marium UXR Portfolio</title>
+    <title>Flow: MVP Evaluation for a Mental Health App — Marium UXR</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -16,247 +16,319 @@
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
+    <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
-      <!-- Header -->
-
       <!-- Nav -->
       <nav id="nav">
         <ul class="links">
-          <li><a href="index.html">This is Massively</a></li>
-          <li class="active"><a href="generic.html">Generic Page</a></li>
-          <li><a href="elements.html">Elements Reference</a></li>
+          <li><a href="index.html">Marium — UX Research</a></li>
+          <li class="active"><a href="generic3.html">Flow MVP</a></li>
         </ul>
         <ul class="icons">
           <li>
-            <a href="#" class="icon brands fa-twitter"
-              ><span class="label">Twitter</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-facebook-f"
-              ><span class="label">Facebook</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-instagram"
-              ><span class="label">Instagram</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-github"
+            <a href="https://github.com/Mjb222" class="icon brands fa-github"
               ><span class="label">GitHub</span></a
             >
           </li>
         </ul>
       </nav>
 
+      <!-- Process tracker -->
+      <div class="tracker-wrap">
+        <ul class="tracker">
+          <li data-step="step-overview">
+            <a href="#step-overview"><span class="dot">1</span><span class="step-label">Overview</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-understand">
+            <a href="#step-understand"><span class="dot">2</span><span class="step-label">Understand</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-research">
+            <a href="#step-research"><span class="dot">3</span><span class="step-label">Research</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-testing">
+            <a href="#step-testing"><span class="dot">4</span><span class="step-label">Testing</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-impact">
+            <a href="#step-impact"><span class="dot">5</span><span class="step-label">Impact</span></a>
+          </li>
+        </ul>
+      </div>
+
       <!-- Main -->
       <div id="main">
-        <!-- Post -->
         <section class="post">
           <header class="major">
-            <h3>
-             User research, competitive analysis and testing the MVP of a mental health ap﻿p  </h3>
-
-            <h2>Project Overview</h2>
-            <p>
-              My Role: User Researcher <br />
-              Methods: Desk Research, UX Audit, Competitive Analysis, Survey, Usability & A/B Testing, Thematic Analysis <br />
-              Tools: Figma, Otter, pen & paper
-              <br />
-              Duration: Jan 2020 2022 - Feb 2021 <br />
-               <br />
-
-             
-            </p>
+            <span class="kicker">Case Study</span>
+            <h1>
+              MVP Evaluation for Flow, a Social-Emotional Skills App
+            </h1>
           </header>
-          <div class="image main"><img src="images/ux1.png" alt="" /></div>
-          <h2>Goal</h2>
-          <p>
-           Flow developed a mental health app to help people learn social and emotional skills to cope with life challenges. They approached me to evaluate their MVP, learn more about prospective users, find a way to keep learners engaged and motivated, and recommend UXR based insights to optimize the app's performance.
 
-   </p>
-          <h2>UXR Strategy</h2>
-          <p>
-            By conducting a comprehensive study involving surveys, interviews, and usability testing, I acquired valuable insights into the preferences and concerns of prospective users. This process enabled me to identify significant usability challenges within the current iteration of the application. Moreover, I undertook an in-depth analysis of other competitors in mental health industry to explore effective strategies for enhancing user engagement and retention. Subsequently, I formulated design recommendations based on these findings to optimize the app's performance and user experience. </p>
-         <div class="image main"><img src="images/uxr1.png" alt="" /></div>
-            <h2>Understanding the Product Vision</h2>
+          <!-- 1. Overview -->
+          <section class="phase" id="step-overview">
+            <span class="kicker">01 — Overview</span>
+            <h2>Evaluating Flow's MVP before it scales</h2>
 
-          <p>
-            Flow app’s researchers had conducted a small research with family friends beta testers and had following assumptions about their users: <br />
-           - Users between 13-19 years old <br />
+            <dl class="meta-card">
+              <div><dt>Role</dt><dd>User Researcher</dd></div>
+              <div><dt>Duration</dt><dd>Jan 2020 – Feb 2021</dd></div>
+              <div><dt>Methods</dt><dd>Desk research, UX audit, competitive analysis, survey, usability &amp; A/B testing, thematic analysis</dd></div>
+              <div><dt>Tools</dt><dd>Figma, Otter, pen &amp; paper</dd></div>
+            </dl>
 
--- Clinical (people with mental health condition diagnosis) & non-clinical people <br />
-
--- Interested in self-improvement <br />
-
--- Mental health advocates <br />
-          
-Before conducting UXR, I dedicated time to understanding the role early prevention (social & emotional skills) that plays an important role in preventing mental health disorders and improve one’s mental health. As a psychologist, I already had deep understanding of significance and how implementation of various therapeutic approaches in early prevention works. Therefore, along with Flow app’s team, three main objectives for the research were decided upon:
-<br />
-- Discover the strengths and weaknesses of the current MVP <br />
-
--- Understand how easily users are interacting with our application<br />
-
--- Understand what actions users take while using our application<br />
-
--- Understand how they feel about the design and colors<br />
-
-- Learn more about users <br />
--- Learn about competitor applications our users are using<br />
-
-- Identify opportunities for users to stay interested and engaged<br />
-
--- Take feedback from users about improvements we can implement<br />
-          </p>
-
-          <h2>Survey
-</h2>
-          <p>
-          To understand beta testers experience with the Flow app, I created a survey to learn more about  them and their experience with the app. I focused on following factors:   <br />
-
-         -- How do they feel about colors & design<br />
-
--- Their opinion about features in the app<br />
-
--- How actively they use mental health apps<br />
-
--- Information on their wellness habits<br />
-
--- How is their experience using Flow app? <br />
-<br />
-            Unfortunately, only 7 beta testers responded and insights I got from them was not very insight and  nobody was willing to take part in a user interview. However, in addition to sending surveys to beta testers, I also shared survey on various social media groups for mental health improvement to learn more about their wellness habits. Social media survey received 86 responses and over 61% indicated that they were actively using some wellness app or programs. 14.2% responded about their wellness habits. 18% gave their opinion about the design and colors of the app. 
-          <div class="image main"><img src="images/uxr2.png" alt="" /></div>
-            
-<h2>Competitive Landscape: Understanding & Insights 
- </h2>
-            <p> In the survey that I created for Flow app, I also asked about other mental health apps or wellness app participants were using.  I also asked about the other mental health or wellness apps that people were currently using. <br />
-
- -- 61% were already using wellness app <br />
-
--- Headspace and BetterHelp were two famous apps that were used on the weekly basis by the participants. <br />
-
-To probe more into participants’ opinion about app they were using, I asked what they liked and disliked about these apps and what features standout for them. This question helped out and I recognized some clear themes through thematic analysis. Some important findings that I was able to extract were: <br />
-
--- Usability - app was easy to use and navigate <br />
-
--- People could track their progress <br />
-
--- Bright colors of apps gave feeling of hopefulness and optimism. <br />
-
-- Features participants disliked were:<br />
-
--- Very basic UI with no emojis or engaging graphics, which makes participants uninterested in the app easily <br />
-
-To develop a deeper understanding of the competitive landscape, I conducted a competitor analysis. I compared BetterHelp and Headspace as Flow app indicated these two apps as their main competitors. Furthermore, few survey participants/respondents also indicated that they were using one or the other.<br />
-
-During my desk research, I examined that these both apps had good user retention as per rating on the app stores. Thus, i focused on examining their user retention and engagement strategy to understand their value proposition. I also looked at mental health communities, feedback on app store, and blogs on the respective competitor apps to understand pain points of users and design opportunities for optimization.   </p>
-      <br />
-
-<h2>Competitive Analysis
- </h2>
-            <p> During competitive analysis, I identified following strategies for user engagement, retention, and app optimization:  <br />
-
-- Onboarding process explanation for great first time user experience <br />
-
-- Daily encouragement notifications  <br />
-
-- Gaming aspect- Streaks  <br />
-
-- Awards for achieving a certain task <br />
-
-- Encouragement after tasks completion  <br />
- 
-- Community engagement  <br />
-
-- In-app feedback option  <br /> </p>
-
-<h2>Current Solution: Evaluation
- </h2>
- <h3>UX DESIGN AUDIT
- </h3>
-            <p> Navigation effect on user engagement: The navigation for various mental health audio courses was hidden in the “Training” tab , which was making it difficult for user to reach them. Users indicated that they preferred to listen to courses like a podcast while doing other tasks instead of making time to read through the courses visually. 
-
-<br /><br /> Usability issues: Participants thought the app was a little confusing because they had difficulty understanding the meaning of a few widgets. For example, the “chat icon” was used for “upcoming workshop” feature, which created confusion because users thought they could chat or join a community with the help of chat icon widget. Moreover, the app was reported as bit slow.
-
-<br /><br /> Accessibility, the color of toolbar section was reported as not visually appealing and color contrasts were bit off. On several occasions, the chosen color palette for the app was not properly aligned with the Web Content Accessibility Guidelines (WCAG). Having sufficient color contrast is crucial for people with color blindness as well as it is also important for an app that people use while they're outside in the sun or in well-lit places. In those situations, the difference between colors can already be hard to see.
+            <p>
+              Flow built a mental health app to help people learn social
+              and emotional skills for coping with life's challenges. They
+              brought me in to evaluate their MVP, learn more about
+              prospective users, find ways to keep learners engaged and
+              motivated, and turn UXR insight into concrete
+              recommendations for improving the app.
             </p>
 
-            <h2>Interview </h2>
+            <figure class="shot">
+              <img
+                src="images/ux1.png"
+                alt="Flow app onboarding screen and home screen showing mood tracking, journaling, meditation, and mental health tips"
+              />
+              <figcaption>Flow's onboarding and home screens, as evaluated in this study.</figcaption>
+            </figure>
+
             <p>
-              As UX design audit is a very useful tools and helps uncover tricky areas of the product. Usability testing provides insight into in what ways people are utilizing and engaging with the product. For understand more in-depth insights I recurited 4 participants who filled out the survey earlier for an in-depth interview combined with the remote usability test.  
+              Through a study combining surveys, interviews, and usability
+              testing, I gathered insight into what prospective users
+              wanted and where they struggled, which surfaced real
+              usability issues in the current build. I paired that with a
+              competitor analysis across the mental health space to find
+              ways to strengthen engagement and retention, then turned
+              both into design recommendations for the app's performance
+              and user experience.
+            </p>
+          </section>
 
-All participants had different motivations and goals for using wellness app but their difficulties were quite similar. They struggled with the length of the courses and reported them as too long. This resulted into lost interest. Also, no reward was proposed after completing a specific course which lowered the motivation more. The font size and styles were also not liked by the users, which made app less appealing to use.
-
- </p>
-
- <h3>Usability Test </h3>
+          <!-- 2. Understand -->
+          <section class="phase" id="step-understand">
+            <span class="kicker">02 — Understand</span>
+            <h2>Understanding the product vision</h2>
             <p>
-              AAfter conducting in-depth interview, I utilized remote usability test. I asked  participants to explore the MVP as they would do normally and think aloud. The feedback was very help and included positive feedback and suggestions on which areas to improve. <br />
+              Flow's own team had already run a small study with beta
+              testers among family and friends, and were working from an
+              early assumption: users are 13–19 years old, both clinical
+              (with a mental health diagnosis) and non-clinical, interested
+              in self-improvement and mental health advocacy. Coming in as
+              a psychologist, I already understood why early
+              prevention — building social and emotional skills — matters
+              for mental health, and how different therapeutic approaches
+              support it. That shaped three objectives for the research,
+              set together with Flow's team.
+            </p>
 
-Participants found following features as likeable and creative: <br />
+            <div class="grid-3">
+              <div class="block">
+                <h4>Evaluate the MVP</h4>
+                <p>How easily are users interacting with the app, and what actions do they actually take? How do they feel about the design and colors?</p>
+              </div>
+              <div class="block">
+                <h4>Learn about users</h4>
+                <p>What competitor apps are our users already using, and why?</p>
+              </div>
+              <div class="block">
+                <h4>Find engagement opportunities</h4>
+                <p>What keeps users interested over time, and what feedback do they have on improvements?</p>
+              </div>
+            </div>
+          </section>
 
-- Quizes <br />
+          <!-- 3. Research -->
+          <section class="phase" id="step-research">
+            <span class="kicker">03 — Research</span>
+            <h2>Survey &amp; competitive landscape</h2>
 
-- Meditation Feature <br />
-
-- Daily tips <br />
-
-- Audio feature of courses <br />
-
-- Digital Journaling <br />
-
-Nevertheless, I also observed various usability issues, and jotted them down in a spreadsheet. The following issues needed to be addressed: <br />
-
- - Quizzes were not timed <br />
-
-- Some words like “Dialectic” and “reinforcing” were used unclearly in the courses. <br />
-
-- The tracker for previous journal entries were not working. <br />
-
-- There were no images for practicing various confidence poses. <br />
-
-- Participants couldn’t see their progress on quizzes and courses. <br />
-
-- the “chat icon” was used for “upcoming workshop” feature, which created confusion because users thought they could chat or join a community with the help of chat icon widget. <br />
-
-
- </p>
-  <div class="image main"><img src="images/uxr3.png" alt="" /></div>
-
-<h2>A/B Testing </h2>
+            <h3>Survey</h3>
             <p>
-              Finally, I did A/B testing using Figma as Flow app had colors options for various screens. The colors palettes they had still didn’t meet the Web Content Accessibility Guidelines (WCAG).   </p>
-          <div class="image main"><img src="images/uxr4.png" alt="" /></div>
-    
-  <h2>Recommendations </h2>
+              To learn more about beta testers and their experience with
+              Flow, I ran a survey covering how they felt about the app's
+              colors and design, their opinion of its features, how
+              actively they used mental health apps, their wellness
+              habits, and their experience with Flow specifically. Only 7
+              beta testers responded, and none were willing to sit for an
+              interview — so I also shared the survey with mental-health
+              and self-improvement communities on social media, which
+              brought in 86 responses.
+            </p>
+
+            <div class="stat-row">
+              <div class="stat"><span class="num">61%</span><span class="label">already using a wellness app or program</span></div>
+              <div class="stat"><span class="num">17.7%</span><span class="label">gave their opinion on Flow's design and colors</span></div>
+              <div class="stat"><span class="num">14.2%</span><span class="label">shared information on their wellness habits</span></div>
+              <div class="stat"><span class="num">7.1%</span><span class="label">had direct experience using the Flow app</span></div>
+            </div>
+
+            <figure class="shot">
+              <img
+                src="images/uxr2.png"
+                alt="Pie chart of social media survey responses: 61% already using wellness apps, 17.7% on design, 14.2% on wellness habits, 7.1% on Flow app experience"
+              />
+              <figcaption>Breakdown of the 86 social-media survey responses.</figcaption>
+            </figure>
+
+            <h3>Competitive landscape</h3>
             <p>
-              After conducting a through research and according to my findings, I proposed following changes: <br />
+              61% of respondents were already using a wellness app.
+              Headspace and BetterHelp came up most often as apps used
+              weekly. Asking what people liked and disliked about the apps
+              they already used surfaced clear themes through thematic
+              analysis:
+            </p>
 
-- Create an in-app feedback system so that users can communicate their expectations or problems they are facing. <br />
+            <div class="grid-2">
+              <div class="block">
+                <h4>What people liked</h4>
+                <ul>
+                  <li>Easy to use and navigate</li>
+                  <li>Able to track their progress</li>
+                  <li>Bright colors that felt hopeful and optimistic</li>
+                </ul>
+              </div>
+              <div class="block">
+                <h4>What people disliked</h4>
+                <ul>
+                  <li>Very basic UI, with no emojis or engaging graphics — made the app feel uninteresting</li>
+                </ul>
+              </div>
+            </div>
 
-- Use easy vocabulary instead of advanced<br />
-
-- Prepare onboarding video for users this will increase value proposition <br />
-
-- Use widgets that have common meanings globally<br />
-
-- Use good color contrast that meet Web Content Accessibility Guidelines (WCAG)<br />
-
-- Moreover, I proposed that they should make a community forum in their app as well where people can connect with other people going through same journey. This appeared in one the confusion with the widget but this sounds like something people were expecting when they saw the chat icon. <br />
-                </p>  
-<h2>Impact </h2>
             <p>
-             
-- This track of UXR has left a strong legacy, and a comprehensive playbook for the company to leverage to improve app features. <br />
+              Since several survey respondents named Headspace and
+              BetterHelp as Flow's main competitors, I focused the desk
+              research there — examining their app-store ratings for
+              retention signals, and reading mental health communities,
+              app-store feedback, and blog coverage to surface pain points
+              and design opportunities.
+            </p>
 
-- I made sketches for suggestions and through collaboration with design and dev team we were able to quickly relay feedback from research and incorporate it to the prototype - Agile!<br />
+            <ul class="finding-list">
+              <li>Onboarding that sets up a strong first-time experience</li>
+              <li>Daily encouragement notifications</li>
+              <li>Gamification — streaks and achievement awards</li>
+              <li>Encouragement after completing a task</li>
+              <li>Community engagement and an in-app feedback option</li>
+            </ul>
+          </section>
 
-    </p>  
+          <!-- 4. Testing -->
+          <section class="phase" id="step-testing">
+            <span class="kicker">04 — Testing</span>
+            <h2>UX audit, interviews &amp; usability testing</h2>
 
+            <h3>UX design audit</h3>
+            <div class="grid-3">
+              <div class="block">
+                <h4>Navigation</h4>
+                <p>Audio courses were tucked inside the "Training" tab, making them hard to find — users said they'd rather listen like a podcast while doing something else than have to read through courses visually.</p>
+              </div>
+              <div class="block">
+                <h4>Usability</h4>
+                <p>Several widgets were unclear — the "chat" icon was actually used for an "upcoming workshop" feature, which led users to expect they could message or join a community there. The app was also reported as a little slow.</p>
+              </div>
+              <div class="block">
+                <h4>Accessibility</h4>
+                <p>The toolbar's color contrast wasn't visually strong and, in several places, didn't meet WCAG guidelines — a real issue for colorblind users and for anyone using the app outdoors in bright light.</p>
+              </div>
+            </div>
+
+            <figure class="shot">
+              <img
+                src="images/uxr4.png"
+                alt="Flow's mood-tracking screen annotated to flag insufficient color contrast against WCAG guidelines"
+              />
+              <figcaption>Color-contrast issue flagged during the UX audit.</figcaption>
+            </figure>
+
+            <h3>Interviews &amp; usability test</h3>
+            <p>
+              I recruited 4 of the survey respondents for in-depth
+              interviews paired with a remote usability test, asking them
+              to explore the MVP as they normally would and think aloud.
+              Motivations varied, but the difficulties were strikingly
+              similar: courses felt too long and lost people's interest,
+              no reward followed course completion, and the font size and
+              styling didn't land well.
+            </p>
+
+            <div class="grid-2">
+              <div class="block">
+                <h4>What participants liked</h4>
+                <ul>
+                  <li>Quizzes</li>
+                  <li>The meditation feature</li>
+                  <li>Daily tips</li>
+                  <li>Audio version of courses</li>
+                  <li>Digital journaling</li>
+                </ul>
+              </div>
+              <div class="block">
+                <h4>Usability issues found</h4>
+                <ul>
+                  <li>Quizzes weren't timed</li>
+                  <li>Terms like "dialectic" and "reinforcing" were used without explanation</li>
+                  <li>The journal-entry tracker didn't work</li>
+                  <li>No reference images for confidence poses</li>
+                  <li>No visible progress on quizzes or courses</li>
+                  <li>The chat icon was used for "upcoming workshop," which confused users expecting messaging or community</li>
+                </ul>
+              </div>
+            </div>
+
+            <figure class="shot">
+              <img
+                src="images/uxr3.png"
+                alt="Flow's bottom navigation bar with the chat icon circled in red, flagging user confusion between the workshop feature and messaging"
+              />
+              <figcaption>Participants expected the circled chat icon to open messaging or community — not "upcoming workshop."</figcaption>
+            </figure>
+
+            <h3>A/B testing</h3>
+            <p>
+              Finally, I ran A/B testing in Figma across the color options
+              Flow had for various screens — none of which yet met Web
+              Content Accessibility Guidelines (WCAG) for contrast.
+            </p>
+          </section>
+
+          <!-- 5. Impact -->
+          <section class="phase" id="step-impact">
+            <span class="kicker">05 — Impact</span>
+            <div class="impact-block">
+              <h2>Recommendations &amp; impact</h2>
+              <ul class="finding-list">
+                <li>Build an in-app feedback system so users can flag problems or expectations directly.</li>
+                <li>Use plain vocabulary instead of clinical or advanced terms.</li>
+                <li>Add an onboarding video to strengthen the app's value proposition upfront.</li>
+                <li>Use widgets with globally understood meanings — starting with the chat/workshop icon.</li>
+                <li>Bring color contrast up to WCAG standards throughout.</li>
+                <li>Add a community forum — the confusion around the chat icon suggested that's genuinely what people expected to find there.</li>
+              </ul>
+              <p>
+                This research track left Flow a strong legacy: a
+                comprehensive playbook the team could act on. I sketched
+                out the proposed changes myself, and worked directly with
+                design and dev to relay research findings into the
+                prototype quickly — the way agile UXR is supposed to work.
+              </p>
+            </div>
+          </section>
+
+          <div class="case-nav">
+            <a href="generic2.html">← Previous project</a>
+            <a href="index.html">All projects →</a>
+          </div>
         </section>
       </div>
 
@@ -264,8 +336,7 @@ Nevertheless, I also observed various usability issues, and jotted them down in 
       <footer id="footer">
         <section></section>
       </footer>
-
-    
+    </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -275,5 +346,6 @@ Nevertheless, I also observed various usability issues, and jotted them down in 
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/tracker.js"></script>
   </body>
 </html>
