@@ -1,0 +1,619 @@
+/*
+	Custom design system â€” layered on top of the Massively (HTML5 UP) base.
+	Palette: warm ink on warm paper, one confident accent (terracotta).
+	Type: Fraunces (headings, editorial warmth) + Inter (body, clean & readable).
+	Load this AFTER assets/css/main.css and assets/css/noscript.css.
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+	--bg: #FBF7F2;
+	--bg-alt: #F1E8DD;
+	--ink: #241C18;
+	--ink-light: #766A61;
+	--accent: #AE4E2E;
+	--accent-dark: #8A3C22;
+	--accent-soft: #EFDBCB;
+	--accent-ink: #FBF7F2;
+	--border: #E3D6C7;
+	--font-head: 'Fraunces', Georgia, serif;
+	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* â€”â€”â€”â€”â€” base overrides â€”â€”â€”â€”â€” */
+
+html { background: var(--bg); }
+
+body, input, select, textarea {
+	font-family: var(--font-body) !important;
+	font-weight: 400;
+	line-height: 1.75;
+}
+
+body { color: var(--ink) !important; background: var(--bg) !important; }
+
+#wrapper { background: var(--bg) !important; }
+
+/* remove the (missing) stock bg.jpg hero image and use a soft css wash instead */
+#wrapper:before {
+	background-image:
+		radial-gradient(circle at 15% 20%, rgba(174, 78, 46, 0.16), transparent 45%),
+		radial-gradient(circle at 85% 0%, rgba(174, 78, 46, 0.10), transparent 40%),
+		linear-gradient(180deg, #241C18 0%, #2E241F 100%) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-head) !important;
+	font-weight: 600;
+	color: var(--ink);
+	letter-spacing: -0.01em;
+}
+
+#main p, .post p {
+	text-align: left;
+	color: var(--ink);
+}
+
+#main a, .post a { color: var(--accent-dark); border-bottom-color: rgba(174, 78, 46, 0.35); }
+#main a:hover { color: var(--accent); }
+
+/* â€”â€”â€”â€”â€” nav â€”â€”â€”â€”â€” */
+
+#header .logo {
+	font-family: var(--font-head) !important;
+	font-weight: 600;
+	letter-spacing: 0;
+}
+
+#nav {
+	background: var(--bg) !important;
+	border-bottom: 1px solid var(--border);
+}
+
+#nav .links a {
+	font-family: var(--font-body) !important;
+	color: var(--ink-light) !important;
+	text-transform: none;
+	letter-spacing: 0.02em;
+	font-weight: 500;
+	border-bottom: none;
+}
+
+#nav .links li.active a,
+#nav .links a:hover { color: var(--accent) !important; }
+
+#nav .icons a {
+	color: var(--ink-light) !important;
+	border: none;
+}
+
+#nav .icons a:hover { color: var(--accent) !important; }
+
+/* â€”â€”â€”â€”â€” hero / intro â€”â€”â€”â€”â€” */
+
+#intro {
+	min-height: 72vh;
+	padding: 6rem 2rem;
+}
+
+#intro .kicker {
+	display: inline-block;
+	font-family: var(--font-body);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--accent-soft);
+	margin-bottom: 1.25rem;
+}
+
+#intro h1 {
+	font-size: 3.4rem;
+	color: #ffffff !important;
+	margin-bottom: 1.25rem;
+}
+
+#intro h2 {
+	font-family: var(--font-body) !important;
+	font-weight: 400;
+	font-size: 1.15rem;
+	line-height: 1.8;
+	color: rgba(251, 247, 242, 0.82) !important;
+	max-width: 40rem;
+	margin: 0 auto;
+}
+
+#intro .button.solo {
+	background: var(--accent) !important;
+	box-shadow: none !important;
+	color: #fff !important;
+}
+
+/* â€”â€”â€”â€”â€” about / bio section â€”â€”â€”â€”â€” */
+
+.bio {
+	max-width: 46rem;
+	margin: 0 auto;
+	padding: 4.5rem 0 3.5rem;
+}
+
+.bio .eyebrow {
+	font-family: var(--font-body);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-bottom: 1rem;
+	display: block;
+}
+
+.bio p {
+	font-size: 1.05rem;
+	line-height: 1.85;
+	color: var(--ink);
+	margin-bottom: 1.25rem;
+}
+
+.bio .pull-line {
+	font-family: var(--font-head);
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.5;
+	color: var(--ink);
+	margin-bottom: 1.5rem;
+}
+
+.focus-tools {
+	margin-top: 2rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--border);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+}
+
+.focus-tools h4 {
+	font-family: var(--font-body);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--ink-light);
+	margin-bottom: 0.75rem;
+}
+
+/* â€”â€”â€”â€”â€” tag chips â€”â€”â€”â€”â€” */
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
+
+.tag {
+	display: inline-block;
+	padding: 0.35rem 0.85rem;
+	border-radius: 999px;
+	background: var(--accent-soft);
+	color: var(--accent-dark);
+	font-family: var(--font-body);
+	font-size: 0.78rem;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.tag.tag--muted {
+	background: transparent;
+	border: 1px solid var(--border);
+	color: var(--ink-light);
+}
+
+/* â€”â€”â€”â€”â€” project grid (homepage) â€”â€”â€”â€”â€” */
+
+.project-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2.5rem;
+	padding: 1rem 0 4rem;
+}
+
+.project-card {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	gap: 2.25rem;
+	align-items: center;
+	padding: 2rem;
+	border: 1px solid var(--border);
+	border-radius: 18px;
+	background: var(--bg-alt);
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+	box-shadow: 0 12px 28px rgba(36, 28, 24, 0.08);
+	transform: translateY(-2px);
+}
+
+.project-card .thumb {
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid var(--border);
+	aspect-ratio: 4 / 3;
+}
+
+.project-card .thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.project-card h2 {
+	font-size: 1.4rem;
+	line-height: 1.3;
+	margin-bottom: 0.6rem;
+}
+
+.project-card h2 a { color: var(--ink); border-bottom: none; }
+.project-card h2 a:hover { color: var(--accent); }
+
+.project-card p.summary {
+	color: var(--ink-light);
+	font-size: 0.95rem;
+	line-height: 1.7;
+	margin-bottom: 1rem;
+}
+
+.project-card .tags { margin-bottom: 1.25rem; }
+
+.project-card .button {
+	background: transparent !important;
+	box-shadow: inset 0 0 0 2px var(--accent) !important;
+	color: var(--accent) !important;
+	font-family: var(--font-body) !important;
+	font-weight: 600;
+}
+
+.project-card .button:hover {
+	background: var(--accent) !important;
+	color: #fff !important;
+}
+
+@media (max-width: 900px) {
+	.project-card { grid-template-columns: 1fr; }
+}
+
+/* â€”â€”â€”â€”â€” case study: process tracker â€”â€”â€”â€”â€” */
+
+.tracker-wrap {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: var(--bg);
+	border-bottom: 1px solid var(--border);
+}
+
+.tracker {
+	max-width: 64rem;
+	margin: 0 auto;
+	padding: 1.1rem 1.5rem;
+	display: flex;
+	align-items: flex-start;
+	overflow-x: auto;
+	list-style: none;
+}
+
+.tracker li { display: flex; align-items: center; flex: 1; min-width: 92px; }
+
+.tracker a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	text-decoration: none;
+	border-bottom: none !important;
+	width: 100%;
+}
+
+.tracker .dot {
+	width: 1.9rem;
+	height: 1.9rem;
+	border-radius: 50%;
+	border: 2px solid var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-body);
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: var(--ink-light);
+	background: var(--bg);
+	transition: all 0.2s ease;
+	flex-shrink: 0;
+}
+
+.tracker .step-label {
+	font-family: var(--font-body);
+	font-size: 0.72rem;
+	font-weight: 500;
+	color: var(--ink-light);
+	text-align: center;
+	white-space: nowrap;
+}
+
+.tracker .connector {
+	flex: 1;
+	height: 2px;
+	background: var(--border);
+	margin: 0.9rem -0.4rem 0;
+}
+
+.tracker li.is-active .dot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tracker li.is-active .step-label { color: var(--ink); font-weight: 700; }
+.tracker li.is-done .dot { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.tracker li.is-done .connector { background: var(--ink); opacity: 0.3; }
+
+@media (max-width: 700px) {
+	.tracker .step-label { display: none; }
+	.tracker .dot { width: 1.6rem; height: 1.6rem; font-size: 0.72rem; }
+}
+
+/* the mobile hamburger toggle is fixed top-right and can sit above the
+   tracker's last step â€” force a legible, consistent style (this template
+   only re-styles it once it scrolls past #header, which case-study pages
+   don't have) and keep the tracker's content clear of it */
+#navPanelToggle {
+	background: var(--bg) !important;
+	color: var(--ink) !important;
+	box-shadow: 0 1px 4px rgba(36, 28, 24, 0.15) !important;
+	border-radius: 8px;
+}
+
+@media screen and (max-width: 980px) {
+	.tracker { padding-right: 6rem; }
+}
+
+/* â€”â€”â€”â€”â€” case study: phase sections â€”â€”â€”â€”â€” */
+
+.phase { padding-top: 2.5rem; scroll-margin-top: 5.5rem; }
+
+.phase .kicker {
+	font-family: var(--font-body);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent);
+	display: block;
+	margin-bottom: 0.6rem;
+}
+
+.phase h2 { font-size: 1.7rem; margin-bottom: 1.1rem; }
+.phase h3 {
+	font-size: 1.1rem;
+	font-family: var(--font-body) !important;
+	font-weight: 700;
+	color: var(--ink);
+	margin: 1.75rem 0 0.6rem;
+}
+
+/* â€”â€”â€”â€”â€” meta card â€”â€”â€”â€”â€” */
+
+.meta-card {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+	background: var(--bg-alt);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	padding: 1.5rem 1.75rem;
+	margin: 1.75rem 0 2.5rem;
+}
+
+.meta-card dt {
+	font-family: var(--font-body);
+	font-size: 0.68rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--ink-light);
+	margin-bottom: 0.4rem;
+}
+
+.meta-card dd {
+	font-family: var(--font-body);
+	font-size: 0.92rem;
+	color: var(--ink);
+	font-weight: 500;
+	line-height: 1.45;
+}
+
+.meta-card .full { grid-column: 1 / -1; }
+
+@media (max-width: 700px) {
+	.meta-card { grid-template-columns: 1fr 1fr; }
+}
+
+.confidential-note {
+	font-family: var(--font-body);
+	font-size: 0.82rem;
+	font-style: italic;
+	color: var(--ink-light);
+	border-left: 2px solid var(--border);
+	padding-left: 0.85rem;
+	margin-top: 0.25rem;
+}
+
+/* â€”â€”â€”â€”â€” pull quote / callout â€”â€”â€”â€”â€” */
+
+.pull-quote {
+	position: relative;
+	margin: 2.25rem 0;
+	padding: 1.5rem 2rem;
+	border-left: 3px solid var(--accent);
+	background: var(--bg-alt);
+	border-radius: 0 14px 14px 0;
+}
+
+.pull-quote p {
+	font-family: var(--font-head) !important;
+	font-size: 1.3rem;
+	font-weight: 500;
+	font-style: italic;
+	line-height: 1.55;
+	color: var(--ink) !important;
+	margin: 0 !important;
+}
+
+/* â€”â€”â€”â€”â€” stat row â€”â€”â€”â€”â€” */
+
+.stat-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2.25rem;
+	margin: 2rem 0;
+	padding: 1.5rem 0;
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+}
+
+.stat { flex: 1; min-width: 130px; }
+
+.stat .num {
+	font-family: var(--font-head);
+	font-size: 2.1rem;
+	font-weight: 700;
+	color: var(--accent);
+	line-height: 1;
+	display: block;
+	margin-bottom: 0.35rem;
+}
+
+.stat .label {
+	font-family: var(--font-body);
+	font-size: 0.8rem;
+	color: var(--ink-light);
+	line-height: 1.4;
+}
+
+/* â€”â€”â€”â€”â€” content grids â€”â€”â€”â€”â€” */
+
+.grid-3, .grid-2 {
+	display: grid;
+	gap: 1.75rem;
+	margin: 1.75rem 0;
+}
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.grid-3 .block, .grid-2 .block {
+	background: var(--bg-alt);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 1.25rem 1.4rem;
+}
+
+.grid-3 .block h4, .grid-2 .block h4 {
+	font-family: var(--font-body);
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: var(--ink);
+	margin-bottom: 0.5rem;
+}
+
+.grid-3 .block p, .grid-2 .block p,
+.grid-3 .block ul, .grid-2 .block ul {
+	font-size: 0.88rem;
+	color: var(--ink-light);
+	line-height: 1.65;
+}
+
+.grid-3 .block ul, .grid-2 .block ul { list-style: disc; padding-left: 1.1rem; }
+.grid-3 .block li, .grid-2 .block li { margin-bottom: 0.3rem; }
+
+@media (max-width: 900px) {
+	.grid-3 { grid-template-columns: 1fr; }
+	.grid-2 { grid-template-columns: 1fr; }
+}
+
+/* â€”â€”â€”â€”â€” findings list â€”â€”â€”â€”â€” */
+
+.finding-list { list-style: none; padding: 0; margin: 1.25rem 0; }
+
+.finding-list li {
+	position: relative;
+	padding-left: 1.6rem;
+	margin-bottom: 0.75rem;
+	font-size: 0.98rem;
+	line-height: 1.65;
+	color: var(--ink);
+}
+
+.finding-list li:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.55rem;
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background: var(--accent);
+}
+
+.finding-list.negative li:before { background: var(--ink-light); }
+
+/* â€”â€”â€”â€”â€” images â€”â€”â€”â€”â€” */
+
+figure.shot {
+	margin: 2.25rem 0;
+}
+
+figure.shot img {
+	width: 100%;
+	display: block;
+	border-radius: 14px;
+	border: 1px solid var(--border);
+}
+
+figure.shot figcaption {
+	font-family: var(--font-body);
+	font-size: 0.82rem;
+	color: var(--ink-light);
+	text-align: center;
+	margin-top: 0.75rem;
+}
+
+/* â€”â€”â€”â€”â€” impact / closing â€”â€”â€”â€”â€” */
+
+.impact-block {
+	margin-top: 2.5rem;
+	padding: 1.75rem 2rem;
+	background: var(--ink);
+	border-radius: 16px;
+}
+
+.impact-block .kicker { color: var(--accent-soft); }
+.impact-block h2, .impact-block p { color: var(--bg) !important; }
+.impact-block p { color: rgba(251, 247, 242, 0.85) !important; }
+
+.impact-block .finding-list li { color: rgba(251, 247, 242, 0.92); }
+.impact-block .finding-list li strong { color: var(--bg); }
+.impact-block .finding-list li:before { background: var(--accent-soft); }
+
+.case-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 3.5rem 0 1rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--border);
+}
+
+.case-nav a {
+	font-family: var(--font-body);
+	font-weight: 600;
+	color: var(--accent-dark);
+	border-bottom: none;
+}
+
+/* the template footer ships empty on every page â€” hide the stray band */
+#footer { display: none !important; }
