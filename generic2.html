@@ -1,12 +1,12 @@
+
 <!DOCTYPE html>
 <!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Massively by HTML5 UP (html5up.net | @ajlkn) — base structure.
+	Custom design system by Marium's request: see assets/css/custom.css
 -->
 <html>
   <head>
-    <title>Marium UXR Portfolio</title>
+    <title>Content Testing for a Mental Health App — Marium UXR</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -16,146 +16,242 @@
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
+    <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
-      <!-- Header -->
-
       <!-- Nav -->
       <nav id="nav">
         <ul class="links">
-          <li><a href="index.html">This is Massively</a></li>
-          <li class="active"><a href="generic.html">Generic Page</a></li>
-          <li><a href="elements.html">Elements Reference</a></li>
+          <li><a href="index.html">Marium — UX Research</a></li>
+          <li class="active"><a href="generic2.html">Content Testing</a></li>
         </ul>
         <ul class="icons">
           <li>
-            <a href="#" class="icon brands fa-twitter"
-              ><span class="label">Twitter</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-facebook-f"
-              ><span class="label">Facebook</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-instagram"
-              ><span class="label">Instagram</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-github"
+            <a href="https://github.com/Mjb222" class="icon brands fa-github"
               ><span class="label">GitHub</span></a
             >
           </li>
         </ul>
       </nav>
 
+      <!-- Process tracker -->
+      <div class="tracker-wrap">
+        <ul class="tracker">
+          <li data-step="step-overview">
+            <a href="#step-overview"><span class="dot">1</span><span class="step-label">Overview</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-understand">
+            <a href="#step-understand"><span class="dot">2</span><span class="step-label">Understand</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-interviews">
+            <a href="#step-interviews"><span class="dot">3</span><span class="step-label">Interviews</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-testing">
+            <a href="#step-testing"><span class="dot">4</span><span class="step-label">Testing</span></a>
+            <span class="connector"></span>
+          </li>
+          <li data-step="step-impact">
+            <a href="#step-impact"><span class="dot">5</span><span class="step-label">Impact</span></a>
+          </li>
+        </ul>
+      </div>
+
       <!-- Main -->
       <div id="main">
-        <!-- Post -->
         <section class="post">
           <header class="major">
-            <h3>
-              Competitive Analysis & Content Testing for mental health app for parents & teens.
-            </h3>
-
-            <h2>Project Overview</h2>
-            <p>
-              My Role: User Researcher <br />
-              Methods: Interview, Comprehensive testing, Cloze testing, A/B testing & Guerrilla Testing <br />
-              Tools: Interview discussion guides, Otter, pen & paper
-              <br />
-              Duration: May 2022 - June 2023 <br />
-               <br />
-Disclaimer: Cannot share details as per company’s privacy policy. Further, many detailed has been modified.
-             
-            </p>
+            <span class="kicker">Case Study</span>
+            <h1>
+              Content Testing for a Teen &amp; Parent Mental Health App
+            </h1>
           </header>
-          <div class="image main"><img src="images/ux2.png" alt="" /></div>
-          <h2>Goal</h2>
-          <p>
-           I worked with a mental health app to help test the effectiveness of the content created for mental health courses.
-          </p>
-          <h2>UXR Strategy</h2>
-          <p>
-            By conducting a comprehensive study involving interviews, and various usability tests (Comprehensive testing, Cloze testing, A/B testing & Guerrilla Testing), I acquired valuable insights into the preferences and concerns of prospective users. This process enabled me to identify significant usability challenges within the current iteration of the app’s content. Moreover, I undertook an in-depth analysis of other competitors in mental health industry to explore effective strategies for enhancing user engagement and retention with the content. Subsequently, I formulated content recommendations based on these findings to optimize the app's content user experience and effectiveness.
-          </p>
-          <h2>Understanding the Product Vision</h2>
-          <p>
-            We conducted a small research with family friends beta testers and had following assumptions about two profile of the users:
-            <br />
-           - Users between 13-19 years old <br />
 
--- Clinical (people with mental health condition diagnosis) & non-clinical people <br />
+          <!-- 1. Overview -->
+          <section class="phase" id="step-overview">
+            <span class="kicker">01 — Overview</span>
+            <h2>Testing whether mental-health course content actually lands</h2>
 
--- Interested in self-improvement <br />
+            <dl class="meta-card">
+              <div><dt>Role</dt><dd>User Researcher</dd></div>
+              <div><dt>Duration</dt><dd>May 2022 – June 2023</dd></div>
+              <div><dt>Methods</dt><dd>Interviews, comprehensive, cloze, A/B &amp; guerrilla testing</dd></div>
+              <div><dt>Tools</dt><dd>Discussion guides, Otter, pen &amp; paper</dd></div>
+              <div class="full">
+                <dt>Confidentiality</dt>
+                <dd class="confidential-note">
+                  Details are limited by the company's privacy policy, and
+                  some specifics have been modified to protect
+                  confidentiality.
+                </dd>
+              </div>
+            </dl>
 
--- Mental health advocates <br />
-            - Users between 35-65 years old<br />
-
--- Interested in helping out their teens <br /> <br />
-            Before conducting UXR, I dedicated time to understanding the role early prevention (social & emotional skills) that plays an important role in preventing mental health disorders and improve one’s mental health. As a psychologist, I already had deep understanding of significance and how implementation of various therapeutic approaches in early prevention works. Therefore, along with the app’s team, two main objectives for the research were decided upon:
-
- <br /><br />
-           - Discover the strengths and weaknesses of the current content:  <br />
-
--- Understand how easily users are interacting with the content <br />
-
--- Understand if users are understanding everything in the content section <br />
-
--- Understand how they feel about the content <br />
-
-- Identify opportunities for users to stay interested and engaged <br />
-
--- Take feedback from users about improvements we can implement <br />
-          </p>
-            <div class="image main"><img src="images/u1.png" alt="" /></div>
-          <h2>Interviews for comprehensive testing of content
-</h2>
-          <p>
-          Usability testing provides insight into in what ways people are utilizing and engaging with the content. For understand more in-depth insights I recruited 2 participants for an in-depth interview. Why I choose comprehensive testing because this method is useful for creating content for different cognitive needs and abilities.   </p>
-         <br />
-
-          I asked open ended questions about: <br />
-
--- the meaning of therapeutic words that were used in the content <br />
-
--- the parts of the content that users might found difficult to understand  <br />
-
--- if the have understand the content and what outcome they expect from their understanding  <br />
-
--- if they can explain to me what they have read without looking or rereading  <br />
-
-<div class="image main"><img src="images/u2.png" alt="" /></div>
-
-<h2>Cloze Testing</h2>
             <p>
-              Further, I used Cloze Testing to focus on the reading  comprehension metrics of the content to avoid certain amount of jargon and technical words. I asked  participants to look at a selection of text with certain (mostly keywords) words removed and fill in the blanks. I set the rule of accepting synonyms and 75 percent accuracy. 
+              A mental health app for teens and their parents brought me
+              on to test the effectiveness of the content behind their
+              mental health courses — a year-long research track applied
+              to every piece of content the team produced.
             </p>
-          <div class="image main"><img src="images/u4.png" alt="" /></div>
-<h2>A/B Testing </h2>
+
             <p>
-              After we had our first impressions, we iterated to the two more newer version of the contents and then tested both of these contents to compare which user liked most, get engaged with, think are helpful for them in implementation.   </p>
-          <div class="image main"><img src="images/u3.png" alt="" /></div>
-<h2>Guerrilla Testing 
- </h2>
-            <p> In addition to using various usabilitiy approaches we also decided to do Guerilla testing and tested content in the conferences and related events. To test how quickly people can comprehend the content of the app. 
-           </p>
-      
-<h2>Recommendations 
- </h2>
-            <p> After conducting in-depth interviews and usability tests, I proposed following changes: <br />
+              I ran a comprehensive study combining interviews and several
+              rounds of usability testing (comprehensive, cloze, A/B, and
+              guerrilla testing) to understand what prospective users
+              preferred and where they got stuck. That surfaced real
+              usability issues in the app's content, which I paired with a
+              competitor analysis across the mental health space to find
+              ways to improve engagement and retention — and turned both
+              into concrete content recommendations.
+            </p>
+          </section>
 
-- Removing and replacing of various technical words <br />
+          <!-- 2. Understand -->
+          <section class="phase" id="step-understand">
+            <span class="kicker">02 — Understand</span>
+            <h2>Understanding the product vision</h2>
+            <p>
+              An early round of research with beta testers (family and
+              friends) shaped two working user profiles: teens aged
+              13–19 — both clinical and non-clinical, interested in
+              self-improvement and mental health advocacy — and parents
+              aged 35–65 looking to support their teens. Coming in as a
+              psychologist, I already understood why early prevention
+              through social and emotional skills matters for mental
+              health, and how different therapeutic approaches support
+              it — which shaped two objectives for the research together
+              with the app's team.
+            </p>
 
-Disclaimer: Cannot share details as per company’s privacy policy.   </p>
+            <div class="grid-2">
+              <div class="block">
+                <h4>Strengths &amp; weaknesses of the current content</h4>
+                <ul>
+                  <li>How easily users interact with the content</li>
+                  <li>Whether users understand everything in it</li>
+                  <li>How the content makes them feel</li>
+                </ul>
+              </div>
+              <div class="block">
+                <h4>Opportunities to stay engaged</h4>
+                <ul>
+                  <li>What keeps users interested over time</li>
+                  <li>Direct feedback on improvements to make</li>
+                </ul>
+              </div>
+            </div>
 
-<h2>Impact
- </h2>
-            <p> This track of UXR has left a strong legacy, and a comprehensive playbook for the company to leverage on to well-researched improvement suggestions for content optimization </p>
+            <figure class="shot">
+              <img
+                src="images/u1.png"
+                alt="Example mobile screen from a mental health app, showing mood tracking, journaling, meditation, and content tiles"
+              />
+              <figcaption>An example of the kind of content screen tested in the study.</figcaption>
+            </figure>
+          </section>
+
+          <!-- 3. Interviews -->
+          <section class="phase" id="step-interviews">
+            <span class="kicker">03 — Interviews</span>
+            <h2>Comprehensive testing through in-depth interviews</h2>
+            <p>
+              Usability testing shows how people actually engage with
+              content, so I recruited 2 participants for in-depth
+              interviews. I chose comprehensive testing specifically
+              because it's built for content that needs to work across a
+              range of cognitive needs and abilities.
+            </p>
+
+            <ul class="finding-list">
+              <li>What therapeutic words used in the content meant to them</li>
+              <li>Which parts of the content they found difficult to understand</li>
+              <li>Whether they understood the content, and what outcome they expected from that understanding</li>
+              <li>Whether they could explain what they'd read without looking back or rereading it</li>
+            </ul>
+
+            <figure class="shot">
+              <img
+                src="images/u2.png"
+                alt="Example onboarding screen shown to interview participants during the comprehensive testing sessions"
+              />
+              <figcaption>An onboarding screen used during interview sessions.</figcaption>
+            </figure>
+          </section>
+
+          <!-- 4. Testing -->
+          <section class="phase" id="step-testing">
+            <span class="kicker">04 — Testing</span>
+            <h2>Cloze, A/B &amp; guerrilla testing</h2>
+
+            <h3>Cloze testing</h3>
+            <p>
+              To measure reading comprehension and keep jargon in check, I
+              used cloze testing — showing participants a passage with
+              certain keywords removed and asking them to fill in the
+              blanks. I accepted synonyms and set a 75% accuracy
+              threshold.
+            </p>
+
+            <figure class="shot">
+              <img
+                src="images/u4.png"
+                alt="Example content passage used for the cloze reading-comprehension test"
+              />
+              <figcaption>Content passage used for cloze testing.</figcaption>
+            </figure>
+
+            <h3>A/B testing</h3>
+            <p>
+              After the first round of interviews, we iterated on two new
+              versions of the content and tested both against each other
+              to see which users preferred, engaged with more, and found
+              most helpful to actually implement.
+            </p>
+
+            <figure class="shot">
+              <img
+                src="images/u3.png"
+                alt="Two content variants compared during A/B testing"
+              />
+              <figcaption>The two content variants compared in A/B testing.</figcaption>
+            </figure>
+
+            <h3>Guerrilla testing</h3>
+            <p>
+              Alongside the structured tests, I ran guerrilla testing at
+              conferences and related events — a fast way to check how
+              quickly people outside the existing participant pool could
+              comprehend the app's content.
+            </p>
+          </section>
+
+          <!-- 5. Impact -->
+          <section class="phase" id="step-impact">
+            <span class="kicker">05 — Impact</span>
+            <div class="impact-block">
+              <h2>Recommendations &amp; impact</h2>
+              <p>
+                Based on the interviews and usability tests, I recommended
+                removing and replacing several technical terms throughout
+                the content.
+                <em>(Further specifics can't be shared under the company's privacy policy.)</em>
+              </p>
+              <p>
+                This research track left a lasting legacy: a
+                well-researched, comprehensive playbook the team could
+                lean on for future content optimization.
+              </p>
+            </div>
+          </section>
+
+          <div class="case-nav">
+            <a href="generic.html">← Previous project</a>
+            <a href="generic3.html">Next project →</a>
+          </div>
         </section>
       </div>
 
@@ -163,8 +259,7 @@ Disclaimer: Cannot share details as per company’s privacy policy.   </p>
       <footer id="footer">
         <section></section>
       </footer>
-
-    
+    </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -174,5 +269,6 @@ Disclaimer: Cannot share details as per company’s privacy policy.   </p>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/tracker.js"></script>
   </body>
 </html>
